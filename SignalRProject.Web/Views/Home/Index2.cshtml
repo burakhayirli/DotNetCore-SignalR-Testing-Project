@@ -1,0 +1,29 @@
+﻿@{ 
+    ViewData["Title"] = "Home Page 2";
+}
+
+@section Scripts{
+    <script src="~/lib/microsoft/signalr/dist/browser/signalr.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(() => {
+            var connection = new signalR.HubConnectionBuilder()
+                .withAutomaticReconnect([1000, 2000, 3000, 5000])
+                .withUrl("/MyHub").build();
+
+            connection.start().then(() => {
+                console.log(connection.state);
+
+                connection.invoke("SendMessage","İlk mesaj");
+
+            }).catch((err) => {
+                console.log(err);
+            });
+
+            connection.on("ReceiveMessage", (message) => {
+                console.log(message);
+            });
+        });
+
+    </script>
+}
