@@ -100,6 +100,15 @@
                 });
             });
 
+            connection.on("ReceiveProduct", (product) => {
+                console.log(product);
+            });
+
+            $("#btnProduct").click(() => {
+                let product = { "Id": 1, "Name": "Kalem", "Price": 100, "Stock": 200 };
+                connection.invoke("SendProduct", product);
+            });
+
             $("#btnNameSave").click(() => {
                 connection.invoke("SendName", $("#txtName").val()).catch((err) => {
                     console.log(err);
@@ -110,6 +119,10 @@
                 let name = $("#txtName").val();
                 let teamName = $("input[type=radio]:checked").val();
 
+                if (teamName == null) {
+                    alert("Takım seçiniz.");
+                    return;
+                }
                 connection.invoke("SendNameByGroup", name, teamName).catch((err) => {
                     console.log(err);
                 });
@@ -136,6 +149,7 @@
         <hr />
         <button class="btn btn-primary" id="btnNameSave">İsim Kaydet</button>
         <button class="btn btn-warning" id="btnNameTeam">İsim Kaydet (Takım)</button>
+        <button class="btn btn-danger" id="btnProduct">Ürün Gönder</button>
         <div class="alert alert-info mt-2">
             <div class="float-left">
                 Bağlantı Durumu: <strong id="conStatus"></strong>
@@ -167,11 +181,12 @@
     <div class="col-md-8 offset-2">
         <div class="row">
             <div class="col-md-6">
+                <h2>A Takımı</h2>
                 <ul class="list-group" id="ATeamList"></ul>
             </div>
             <div class="col-md-6">
+                <h2>B Takımı</h2>
                 <ul class="list-group" id="BTeamList"></ul>
-
             </div>
         </div>
         <ul class="list-group" id="namesList">
