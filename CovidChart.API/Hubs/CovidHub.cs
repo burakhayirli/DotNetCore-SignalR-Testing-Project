@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.SignalR;
+﻿using CovidChart.API.Services;
+using Microsoft.AspNetCore.SignalR;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,9 +9,15 @@ namespace CovidChart.API.Hubs
 {
     public class CovidHub : Hub
     {
+        private readonly CovidService _covidService;
+        public CovidHub(CovidService covidService)
+        {
+            _covidService = covidService;
+        }
+
         public async Task GetCovidList()
         {
-            await Clients.All.SendAsync("ReceviceCovidList","serviceden covid 19 verilerini al");
+            await Clients.All.SendAsync("ReceviceCovidList",_covidService.GetCovidChartList());
         }
     }
 }
