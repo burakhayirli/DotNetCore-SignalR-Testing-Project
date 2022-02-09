@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31005.135
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalRProject.API", "SignalRProject.API\SignalRProject.API.csproj", "{6FC55E29-5167-43D0-9490-5D6300375CC1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SignalRProject.API", "SignalRProject.API\SignalRProject.API.csproj", "{6FC55E29-5167-43D0-9490-5D6300375CC1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalRProject.Web", "SignalRProject.Web\SignalRProject.Web.csproj", "{4E0404D8-CD24-4F3F-944E-829042E226BA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SignalRProject.Web", "SignalRProject.Web\SignalRProject.Web.csproj", "{4E0404D8-CD24-4F3F-944E-829042E226BA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CovidChart.API", "CovidChart.API\CovidChart.API.csproj", "{0B1C5E0C-ABC8-4C59-A207-76ABF18DA7BF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{4E0404D8-CD24-4F3F-944E-829042E226BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4E0404D8-CD24-4F3F-944E-829042E226BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4E0404D8-CD24-4F3F-944E-829042E226BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B1C5E0C-ABC8-4C59-A207-76ABF18DA7BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B1C5E0C-ABC8-4C59-A207-76ABF18DA7BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B1C5E0C-ABC8-4C59-A207-76ABF18DA7BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B1C5E0C-ABC8-4C59-A207-76ABF18DA7BF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
