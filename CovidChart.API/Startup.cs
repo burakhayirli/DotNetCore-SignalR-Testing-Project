@@ -1,3 +1,4 @@
+using CovidChart.API.Hubs;
 using CovidChart.API.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -32,6 +33,8 @@ namespace CovidChart.API
                 options.UseSqlServer(Configuration["ConStr"]);
             });
             services.AddControllers();
+            services.AddSignalR();
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "CovidChart.API", Version = "v1" });
@@ -57,6 +60,7 @@ namespace CovidChart.API
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapHub<CovidHub>("/CovidHub");
             });
         }
     }
